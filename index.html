@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>認識認知失調：流浪小貓的生存故事</title>
+</head>
+<body>
+<tw-storydata name="認識認知失調：流浪小貓的生存故事" startnode="1" format="SugarCube" format-version="2.37.3" options="" hidden>
+<style role="story-stylesheet" id="twine-user-stylesheet" type="text/css">body {
+	background-color: #1a1a24;
+	color: #e2e8f0;
+	font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+	font-size: 11pt;
+	line-height: 1.6;
+}
+#ui-bar {
+	background-color: #111116;
+	border-right: 1px solid #2d2d3d;
+}
+#story {
+	margin-left: 20em;
+	padding: 2.5em;
+}
+a {
+	color: #6366f1;
+	text-decoration: none;
+	font-weight: bold;
+	transition: color 0.2s ease;
+}
+a:hover {
+	color: #818cf8;
+	text-decoration: underline;
+}
+.sidebar-status {
+	padding: 10px;
+	background: #181820;
+	border-radius: 6px;
+	border: 1px solid #2a2a35;
+}
+.status-label {
+	display: block;
+	font-size: 9pt;
+	color: #94a3b8;
+	margin-bottom: 4px;
+	font-weight: bold;
+}
+.status-val {
+	display: block;
+	font-size: 11pt;
+	color: #f1f5f9;
+	margin-bottom: 12px;
+	font-weight: bold;
+}
+.status-divider {
+	border: 0;
+	border-top: 1px solid #2d2d3d;
+	margin: 10px 0;
+}
+.bar-container {
+	background-color: #334155;
+	border-radius: 4px;
+	height: 8px;
+	width: 100%;
+	margin-bottom: 4px;
+	overflow: hidden;
+}
+.bar {
+	height: 100%;
+	border-radius: 4px;
+	transition: width 0.4s ease;
+}
+.health-bar {
+	background: linear-gradient(90deg, #ef4444, #f87171);
+}
+.trust-bar {
+	background: linear-gradient(90deg, #3b82f6, #60a5fa);
+}
+h2 {
+	color: #f1f5f9;
+	border-left: 5px solid #6366f1;
+	padding-left: 12px;
+	font-size: 15pt;
+	margin-top: 0;
+}
+h3 {
+	color: #c084fc;
+	font-size: 12pt;
+}
+.warning {
+	color: #f87171;
+	font-weight: bold;
+}
+.success {
+	color: #4ade80;
+	font-weight: bold;
+}
+.ending-box {
+	padding: 18px;
+	border-radius: 8px;
+	margin: 20px 0;
+	font-size: 11pt;
+}
+.summary-card {
+	background-color: #1e293b;
+	border-left: 5px solid #10b981;
+}
+.warning-card {
+	background-color: #2d1a1a;
+	border-left: 5px solid #ef4444;
+}</style>
+<tw-passagedata pid="1" name="StoryInit" tags="" x="100" y="100">&lt;&lt;set $catName = &quot;小貓&quot;&gt;&gt;
+&lt;&lt;set $health = 20&gt;&gt;
+&lt;&lt;set $trust = 20&gt;&gt;
+&lt;&lt;set $day = 1&gt;&gt;
+&lt;&lt;set $location = &quot;陰暗的箱子&quot;&gt;&gt;
+
+/* 記錄玩家達成的結局集 */
+&lt;&lt;if typeof $endings === &quot;undefined&quot;&gt;&gt;
+	&lt;&lt;set $endings = []&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="2" name="StoryCaption" tags="" x="320" y="100">&lt;div class=&quot;sidebar-status&quot;&gt;
+	&lt;span class=&quot;status-label&quot;&gt;🐾 當前位置&lt;/span&gt;
+	&lt;span class=&quot;status-val&quot;&gt;$location&lt;/span&gt;
+	&lt;hr class=&quot;status-divider&quot;&gt;
+	&lt;span class=&quot;status-label&quot;&gt;❤️ 身體健康度&lt;/span&gt;
+	&lt;div class=&quot;bar-container&quot;&gt;&lt;div class=&quot;bar health-bar&quot; style=&quot;width: calc($health * 1%)&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+	&lt;span class=&quot;status-val&quot;&gt;$health / 100&lt;/span&gt;
+	&lt;hr class=&quot;status-divider&quot;&gt;
+	&lt;span class=&quot;status-label&quot;&gt;🤝 人類信賴度&lt;/span&gt;
+	&lt;div class=&quot;bar-container&quot;&gt;&lt;div class=&quot;bar trust-bar&quot; style=&quot;width: calc($trust * 1%)&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+	&lt;span class=&quot;status-val&quot;&gt;$trust / 100&lt;/span&gt;
+	&lt;hr class=&quot;status-divider&quot;&gt;
+	&lt;span class=&quot;status-label&quot;&gt;📅 流浪天數&lt;/span&gt;
+	&lt;span class=&quot;status-val&quot;&gt;第 $day 天&lt;/span&gt;
+&lt;/div&gt;
+
+&lt;&lt;if $health &lt;= 0&gt;&gt;
+	&lt;&lt;goto &quot;End_Death_Sick&quot;&gt;&gt;
+&lt;&lt;elseif $health &gt; 100&gt;&gt;
+	&lt;&lt;set $health = 100&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $trust &lt; 0&gt;&gt;
+	&lt;&lt;set $trust = 0&gt;&gt;
+&lt;&lt;elseif $trust &gt; 100&gt;&gt;
+	&lt;&lt;set $trust = 100&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="3" name="StoryMenu" tags="" x="540" y="100">[[📖 關於本作與認知失調|About_Cognitive_Dissonance]]</tw-passagedata>
+<tw-passagedata pid="4" name="About_Cognitive_Dissonance" tags="" x="760" y="100">&lt;h3&gt;🧠 關於本作的設計核心：認知失調 (Cognitive Dissonance)&lt;/h3&gt;
+本遊戲除了是一隻孱弱小貓的生存掙扎，亦融入了心理學中&lt;b&gt;「認知失調」&lt;/b&gt;的自我調適與心理防衛機制。
+
+當流浪貓（或人類）面臨殘酷的現實痛苦、無奈的抉擇或生存壓力時，心理常會產生矛盾與不適感。為了在逆境中生存下去，個體往往會透過「改變認知」、「自我合理化」或「尋找防衛藉口」來消除這種失調感，讓脆弱的心靈得以延續。
+
+在漫長的流浪旅途中，你所做的某些選擇，將會帶領小貓體驗生命的脆弱、人類社會的善惡，以及心靈在逆境中的自我救贖。
+
+[[返回故事中|back]]</tw-passagedata>
+<tw-passagedata pid="5" name="Start" tags="" x="100" y="280">&lt;&lt;set $location = &quot;出生暗巷&quot;&gt;&gt;
+&lt;h2&gt;🐾 序章：被遺忘的雨夜&lt;/h2>
+
+你在一片冰冷、潮濕的黑暗中睜開了雙眼。
+
+四周是一股混雜著發霉紙箱與廢棄物刺鼻氣味的暗巷。身邊還殘留著母親與兄弟姊妹們一絲絲微弱、卻正在迅速消散的溫暖氣味。
+
+因為你生來便比其他同胞更加矮小、孱弱，連站立都搖搖晃晃。在幾小時前一場突如其來的暴雨遷徙中，母親在權衡生存代價後，終究還是選擇叼走了其他健康的幼貓，將你獨自遺留在這個冰冷的起點。
+
+你微弱地「喵——」了一聲，然而回應你的，只有遠處天空中無情的悶雷聲。你的肚子正發出飢餓的悲鳴，冰冷的雨水已開始順著紙箱邊緣滴落在你稀疏的毛皮上。
+
+作為一個極其弱小的生命，你必須在世界邊緣展開你的掙扎。
+
+[[🐾 爬出紙箱，走向下著大雨的街道|Rainy_Street]]
+[[🐾 蜷縮在紙箱最深處，試圖保留最後的體溫|Stay_Box]]</tw-passagedata>
+<tw-passagedata pid="6" name="Stay_Box" tags="" x="320" y="280">&lt;&lt;set $health -= 8&gt;&gt;
+&lt;&lt;set $day += 1&gt;&gt;
+&lt;&lt;set $location = &quot;廢棄紙箱&quot;&gt;&gt;
+&lt;h2&gt;📦 避雨的紙箱深處&lt;/h2>
+
+你選擇將身體緊緊蜷縮成一個小毛球，試圖用自己微弱的呼吸來抵抗步步逼近的寒意。
+
+然而，大雨越下越大，冰冷的雨水很快便浸透了紙箱頂部。黏濕的紙屑黏在你毫無禦寒能力的皮膚上，帶走你僅存的熱量。在漫長而清醒的飢餓折磨中，你度過了極其煎熬的一夜。
+
+第二天清晨，雨勢稍稍停歇。你的身體變得無比沉重，四肢凍得近乎失去知覺。你明白，如果繼續待在原地，這裡將會成為你無聲的墳墓。
+&lt;span class=&quot;warning&quot;&gt;（健康度 -8，流浪天數 +1）&lt;/span&gt;
+
+[[🐾 用盡最後的力氣爬出去，前往雨後的街道|Rainy_Street]]
+[[🐾 已經動彈不得，閉上眼繼續沉睡|End_Death_Box]]</tw-passagedata>
+<tw-passagedata pid="7" name="Rainy_Street" tags="" x="540" y="280">&lt;&lt;set $health -= 5&gt;&gt;
+&lt;&lt;set $day += 1&gt;&gt;
+&lt;&lt;set $location = &quot;下雨的街道&quot;&gt;&gt;
+&lt;h2&gt;⛈️ 下雨的街道&lt;/h2>
+
+你搖搖晃晃地踩進了外面世界冰冷的泥水中。
+豆大的雨滴無情地砸在你瘦弱的脊樑上，每一步前行都伴隨著刺骨的冰涼。你的體力正在大雨中迅速流失。
+&lt;span class=&quot;warning&quot;&gt;（健康度 -5，流浪天數 +1）&lt;/span&gt;
+
+霓虹燈光倒映在路面密布的&lt;b&gt;雨後積水&lt;/b&gt;中，折射出混亂而炫目的光芒。對你而言，這個世界既陌生又充滿了致命的威脅。就在你幾乎要倒在路邊時，你注意到了前方的幾處避難所：
+
+一輛停在路邊、[[未發動的黑色車子旁|Car_Side]]，車底似乎是一處乾爽的空間。
+遠處一棟民宅，一樓隱約有著一方[[某戶人家的庭院|Garden_Path]]，散發著泥土與植物的遮蔽感。
+更遠處的街角，似乎有一處高挑的[[騎樓與某咖啡廳外牆|Cafe_Approach]]，空氣中隱約飄來一絲食物的香氣。
+
+你決定前往何處？
+
+[[🐾 躲進未發動的車子底下避雨|Car_Side]]
+[[🐾 試圖鑽進那戶人家的庭院柵欄|Garden_Path]]
+[[🐾 朝著飄有食物香氣的咖啡廳牆角爬去|Cafe_Approach]]</tw-passagedata>
+<tw-passagedata pid="8" name="Car_Side" tags="" x="760" y="280">&lt;&lt;set $health += 5&gt;&gt;
+&lt;&lt;set $location = &quot;未發動車底&quot;&gt;&gt;
+&lt;h2&gt;🚗 未發動的車子底下&lt;/h2>
+
+你用盡全身力氣，狼狽地在粗糙的柏油路上匍匐前進，最終成功爬進了這輛黑色轎車的底盤下方。
+
+雖然車子的引擎是冰冷的，但巨大的車身替你擋住了頭頂狂暴的風雨。你緊緊縮在寬大的輪胎後方，拼命舔拭著身上濕漉漉的毛皮。稍微離開了雨淋，你的呼吸終於平穩了一些，體力些微恢復。
+&lt;span class=&quot;success&quot;&gt;（健康度 +5）&lt;/span&gt;
+
+突然，一陣沉重且密集的腳步聲在車門外響起。一個巨大的人類身影踩著積水停在車旁，手裡拿著一串金屬鑰匙，發出刺耳清脆的撞擊聲。
+
+車子似乎隨時可能發動，而人類的靠近也讓你體內野性的本能警鈴大作。此時，你決定：
+
+[[🐾 發出微弱的喵喵聲叫喊，主動暴露存在（打賭人類的善意）|Car_Human_Interact]]
+[[🐾 恐懼戰勝了一切，立刻從另一側竄出車底，逃回街上|Rainy_Street]]</tw-passagedata>
+<tw-passagedata pid="9" name="Car_Human_Interact" tags="" x="100" y="460">&lt;h2&gt;👤 車底的人類相遇&lt;/h2>
+
+你鼓起全身僅存的勇氣，對著那雙巨大的皮鞋發出了沙啞、近乎哀鳴的喵叫聲。
+
+腳步聲猝然停了下來。
+
+&lt;&lt;if $trust &gt;= 20&gt;&gt;
+	&lt;&lt;set $trust += 15&gt;&gt;
+	&lt;&lt;set $health += 10&gt;&gt;
+	那個人類彎下了腰，打開手機的閃光燈。刺眼的光芒照亮了黑暗的車底，也照亮了你全身濕透、瑟瑟發抖的小小身軀。
+	
+	「哎呀...怎麼有隻這麼小的小貓躲在這裡？要是發動車子就糟了...」
+	
+	一雙溫暖、寬大的手帶著一絲遲疑，但十分輕柔地將你從輪胎後方撈了起來。那股突如其來的熱量將你包裹。對方把你塞進了乾燥的厚外套裡，快步朝著街角跑去。
+	&lt;span class=&quot;success&quot;&gt;（信賴度 +15，健康度 +10）&lt;/span&gt;
+	
+	[[🐾 窩在溫暖的懷抱中，任由命運帶領|Animal_Hospital]]
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;set $health -= 12&gt;&gt;
+	那個人類似乎心情極其焦躁，甚至沒有低頭看你一眼，只是粗暴地用腳踢了踢車輪，大聲呵斥：
+	「去去去！哪來的野貓叫得這麼難聽，別擋在輪胎前面！」
+	
+	突如其來的巨響與震動嚇得你魂飛魄散。你驚慌失措地竄出車底，卻在慌亂中一腳踩空，狠狠摔進了路旁深沉的&lt;b&gt;雨後積水&lt;/b&gt;中。冰冷的污水灌進你的口鼻，你狼狽地游出水坑，幾乎要窒息。
+	&lt;span class=&quot;warning&quot;&gt;（健康度 -12）&lt;/span&gt;
+	
+	[[🐾 拖著極度虛弱的身體，盲目地逃往附近的校園|School_Campus]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="10" name="Garden_Path" tags="" x="320" y="460">&lt;&lt;set $health += 5&gt;&gt;
+&lt;&lt;set $location = &quot;某戶庭院&quot;&gt;&gt;
+&lt;h2&gt;🏡 某戶人家的庭院&lt;/h2>
+
+你沿著牆根排水溝前進，用細小的爪子攀爬，終於從木質柵欄的縫隙中擠進了一座生機盎然的庭院。
+
+這裡種滿了綠色植物，泥土散發著芬芳。茂密的灌木叢形成了一道天然的雨傘，將大部分的暴雨隔絕在外。更讓你興奮的是，院子角落的走廊上放著一個狗罐頭的空罐，底部還殘留著一些沒吃乾淨的肉渣！
+
+你顧不得許多，急忙撲過去用粉嫩的舌頭拼命舔舐，高熱量的肉渣讓空洞的胃袋得到了一絲違藉。
+
+這時，庭院的落地窗突然傳來「喀啦」一聲，被推開了。一位綁著馬尾的年輕女孩拿著雨傘走了出來，一眼就看見了正在舔罐頭的你。
+
+[[🐾 害怕得立刻放下食物，試圖鑽回柵欄外逃跑|Rainy_Street]]
+[[🐾 留在原地，一邊弱弱地叫喚，一邊用無辜的眼神看著她|Garden_Human]]</tw-passagedata>
+<tw-passagedata pid="11" name="Garden_Human" tags="" x="540" y="460">&lt;h2&gt;👩‍🦰 庭院中的抉擇&lt;/h2>
+
+你留在原地，身體因為警戒而微微緊繃，但嘴裡發出可憐兮兮的啼哭聲，甚至主動用小腦袋蹭了蹭旁邊的柱子。
+
+女孩看到你這副孱弱又渴望生存的模樣，心瞬間軟了下來。
+「哇，好小一隻貓咪，你的媽媽呢？怎麼瘦成這樣...」
+
+她蹲下身，慢慢向你伸出手。這時，你的核心數值與過去的經歷將決定她的下一步：
+
+&lt;&lt;if $trust &gt;= 25&gt;&gt;
+	&lt;&lt;set $trust += 20&gt;&gt;
+	她溫柔地撫摸著你的頭頂，你體會到了出生以來未曾感受過的細細溫柔。她轉身進屋，拿了一條乾淨的毛巾把你裹住，抱進了溫暖的客廳。
+	&lt;span class=&quot;success&quot;&gt;（信賴度 +20）&lt;/span&gt;
+	
+	[[🐾 進入溫暖的陌生人家中|Someone_Home]]
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;set $trust -= 10&gt;&gt;
+	&lt;&lt;set $health -= 5&gt;&gt;
+	當她的手靠近時，你長期累積的戒心與創傷讓你條件反射地弓起背，發出了尖銳的「哈——」聲，甚至驚恐地揮動尚未發育完全的小爪子。
+	
+	女孩被你的防備和兇狠嚇了一跳，本能地縮回了手。「好兇的小貓...看來很有野性呢。」她嘆了口氣，雖然沒有傷害你，但也沒有再試圖抱你，只是轉身留下一小碟乾飼料便回屋了。
+	
+	你吃掉了飼料，但隨後雨水開始蔓延進灌木叢，你不得不再度尋求新的去處。
+	&lt;span class=&quot;warning&quot;&gt;（信賴度 -10，健康度 -5，但因吃飼料免於餓死）&lt;/span&gt;
+	
+	[[🐾 吃飽後離開庭院，走向附近的校園避難|School_Campus]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="12" name="Cafe_Approach" tags="" x="760" y="460">&lt;&lt;set $location = &quot;咖啡廳外&quot;&gt;&gt;
+&lt;h2&gt;☕ 溫慢閃爍的咖啡廳外牆&lt;/h2>
+
+你順著空氣中濃郁的奶香與咖啡豆香氣，一步步爬到了街角一間文青咖啡廳的騎樓下。
+
+這裡寬敞且乾燥，大片的落地窗透出昏黃而溫暖的燈光。透過玻璃，你看到幾隻毛色柔順、體型肥碩的貓咪正慵懶地躺在特製的貓跳台上睡覺，那裡簡真就是天堂。
+
+你羨慕地看著裡面。這時，咖啡廳的木門打開，一位繫著圍裙的店員正走出來準備收起外面的看板，一眼看見了趴在落地窗邊、像一團濕抹布一樣的你。
+
+[[🐾 主動走過去，用身體輕輕摩擦店員的褲腳|Cafe_Interact]]
+[[🐾 害怕被驅趕，退縮到旁邊的自動販賣機夾縫中|Cafe_Hide]]</tw-passagedata>
+<tw-passagedata pid="13" name="Cafe_Interact" tags="" x="100" y="640">&lt;h2&gt;🐱 貓咪咖啡廳的命運分歧&lt;/h2>
+
+你主動迎了上去，用沾滿泥水與雨水的身體，輕輕地蹭著店員乾淨的制服褲腳，使勁發出最軟糯的撒嬌聲。
+
+店員低下頭，看著自己被弄髒的褲子，再看看你那雙亮晶晶卻充滿乞求的眼睛。
+
+&lt;&lt;if $trust &gt;= 30&gt;&gt;
+	&lt;&lt;set $trust += 30&gt;&gt;
+	&lt;&lt;set $health += 40&gt;&gt;
+	「哎呀，你這小傢伙也太會撒嬌了吧？正好我們店裡正想再收編一隻親人的流浪貓呢...」
+	店員笑著把你抱了起來，高呼店長。經過簡單的擦拭與餵食後，你被放進了一個專屬的隔離小籠子裡，吃到了出生以來最美味的幼貓罐頭。
+	&lt;span class=&quot;success&quot;&gt;（信賴度 +30，健康度 +40）&lt;/span&gt;
+	
+	[[🐾 在舒適的環境中度過觀察期|End_Cafe_Cat]]
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;set $health -= 5&gt;&gt;
+	&lt;&lt;set $trust -= 5&gt;&gt;
+	「去，哪裡來的野貓，髒兮兮的別蹭我！」店員有些嫌惡地退後一步，用腳尖輕輕將你撥開。雖然沒有用力踢你，但這份冷漠依然讓脆弱的你感到心碎。
+	
+	隨後店門緊閉，你只能無助地待在冰冷的石子地上。
+	&lt;span class=&quot;warning&quot;&gt;（健康度 -5，信賴度 -5）&lt;/span&gt;
+	
+	[[🐾 灰心地離開，前往附近的校園看看|School_Campus]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="14" name="Cafe_Hide" tags="" x="320" y="640">&lt;&lt;set $health -= 10&gt;&gt;
+&lt;&lt;set $location = &quot;販賣機夾縫&quot;&gt;&gt;
+&lt;h2&gt;🤖 自動販賣機的無情夾縫&lt;/h2>
+
+因為對人類的恐懼，你選擇躲進了兩台自動販賣機狹窄的夾縫中。
+
+這裡雖然能擋雨，但背面的散熱風扇正不斷發出巨大的機械轟鳴聲，且吹出來的風並非溫暖，而是帶著濃重機油味的廢熱。你在極度的噪音與震動中瑟瑟發抖，根本無法安心休息。
+
+不知過了多久，夜深了，咖啡廳熄燈了。你又餓又累，體力嚴重透支。
+&lt;span class=&quot;warning&quot;&gt;（健康度 -10）&lt;/span>
+
+[[🐾 必須離開這裡，前往不遠處的校園尋找機會|School_Campus]]
+[[🐾 身體太重了，決定就在這溫熱卻窒息的夾縫中睡去|End_Death_Machine]]</tw-passagedata>
+<tw-passagedata pid="15" name="School_Campus" tags="" x="540" y="640">&lt;&lt;set $day += 1&gt;&gt;
+&lt;&lt;set $location = &quot;陽光校園&quot;&gt;&gt;
+&lt;h2&gt;🏫 充滿生機的綠意校園&lt;/h2>
+
+你歷經千辛萬苦，穿過了危機四伏的馬路，終於溜進了一所大學校園。
+
+清晨的陽光穿透雲霧灑在草皮上，&lt;b&gt;雨後的積水&lt;/b&gt;在陽光下閃爍著碎金般的光芒。這裡沒有呼嘯而過的汽車，取而代之的是成群結隊、背著書包的年輕學生。
+
+你趴在花圃邊緣，看著來來往往的人群。校園裡似乎有許多對動物十分友善的設施，甚至在行政大樓旁的走廊下，隱約可以看到專門為流浪動物設置的乾淨水盆與乾飼料！
+
+這時，幾名注意到你的學生一臉興奮地朝你走了過來，手裡還拿著剛從便利商店買來的貓肉泥。
+
+[[🐾 太棒了！立刻主動跑過去討肉泥吃|School_Interact]]
+[[🐾 保持警惕，躲在灌木叢深處，等他們走了再偷偷去吃走廊的飼料|School_Sneak]]
+[[🐾 被其中一個調皮、眼神不善的小孩（校外人士）盯上，試圖逃跑|School_Danger]]</tw-passagedata>
+<tw-passagedata pid="16" name="School_Interact" tags="" x="760" y="640">&lt;h2&gt;🍖 校園中的熱情學生&lt;/h2>
+
+看見肉泥的包裝，你口水直流，大膽地踩著草皮跑了過去，一邊繞著學生的腳步轉圈，一邊發出急切的喵喵聲。
+
+學生們被你可愛的模樣徹底融化了。「天啊！這隻小貓太親人了吧！快餵牠吃！」
+
+撕開的肉泥源源不絕地送進你的嘴裡。這是你生命中第一次吃飽，高能量的營養迅速補充了你乾涸的身體。
+
+&lt;&lt;if $trust &gt;= 35&gt;&gt;
+	&lt;&lt;set $trust += 25&gt;&gt;
+	&lt;&lt;set $health += 35&gt;&gt;
+	學生們隨後聯絡了學校的「流浪動物關懷社團」。學姊們帶著專業的運輸籠趕到，將全身髒兮兮但精神奕奕的你溫柔地安置進去，決定將你列為校園守護計畫的核心成員。
+	&lt;span class=&quot;success&quot;&gt;（信賴度 +25，健康度 +35）&lt;/span&gt;
+	
+	[[🐾 跟著動保社的同學前往新家|End_School_Cat]]
+&lt;&lt;else&gt;&gt;
+	&lt;&lt;set $health += 15&gt;&gt;
+	&lt;&lt;set $trust += 10&gt;&gt;
+	你一邊吃，卻又一邊防備地發出低吼，甚至在對方想要摸你時，不小心抓傷了學生的手指。
+	「哎唷，牠會抓人耶，看來還是很有野性、不太習慣給人摸。」
+	學生們吃痛縮手，餵完肉泥後便聊天離開了。你雖然填飽了肚子，但沒能留住他們。
+	&lt;span class=&quot;success&quot;&gt;（健康度 +15，信賴度 +10）&lt;/span&gt;
+	
+	[[🐾 繼續留在校園中晃蕩，隨後誤打誤撞走進了動物醫院旁|Animal_Hospital]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="17" name="School_Sneak" tags="" x="100" y="820">&lt;&lt;set $health += 10&gt;&gt;
+&lt;&lt;set $trust -= 5&gt;&gt;
+&lt;h2&gt;🕵️ 灌木叢中的潛伏&lt;/h2>
+
+你選擇相信自己野性的直覺，死死壓低身體躲在帶刺的灌木叢中，任憑學生們怎麼呼喚、怎麼搖晃肉泥，你都絕不出聲。
+
+久而久之，學生們覺得無趣，便紛紛散去。
+
+確認四周安全後，你才像個小賊一樣，敏捷地溜到行政大樓的走廊下。那裡擺放著善心人士準備的乾飼料。你拼命大口吞嚥，接著又喝了幾口乾淨的水，乾癟的肚子終於鼓了起來，體力大增！
+&lt;span class=&quot;success&quot;&gt;（健康度 +10，信賴度 -5）&lt;/span&gt;
+
+然而，當晚校園進行全面封閉消毒。你不得不離開學校。在夜晚的街道上，你看到了一輛印有動物標誌的巡邏車停在路邊，幾位穿著制服的人正拿著誘捕籠在巡視。
+
+[[🐾 主動走過去（也許能獲得更好的照顧）|Shelter_Approach]]
+[[🐾 驚慌逃跑，卻不小心跑進了一家徹夜亮燈的動物醫院後門|Animal_Hospital]]</tw-passagedata>
+<tw-passagedata pid="18" name="School_Danger" tags="" x="320" y="820">&lt;&lt;set $health -= 15&gt;&gt;
+&lt;h2&gt;⚠️ 校園角落的黑暗危機&lt;/h2>
+
+你不幸遇到了幾個趁著假日前來校園遊蕩、缺乏管教且性格惡劣的不懂事小孩子。
+
+他們一看到你瘦弱、走路搖晃的模樣，不但沒有同情心，反而露出了興奮的殘忍笑容。「快看！那裡有一隻落單的死野貓！我們用石頭丟牠！」
+
+幾顆粗糙的碎石瞬間如雨般砸向你。你雖然拼命拔腿狂奔，但孱弱的四肢根本跑不快，一顆尖銳的石頭狠狠砸中了你的後腿，劇烈的疼痛讓你慘叫出聲，只能一瘸一拐地往死角縮去。
+&lt;span class=&quot;warning&quot;&gt;（健康度 -15）&lt;/span>
+
+舊在千鈞一髮之際，傳來一聲大喝：「你們在幹什麼！」校園的警衛大叔揮舞著警棍快步趕來，將這群壞小孩徹底趕跑。
+
+警衛大叔蹲下身，看著受傷、滿身是血且極度驚恐的你，嘆了口氣，用厚毛巾將你包了起來。
+
+[[🐾 痛苦地閉上眼睛，等待命運的判決|Animal_Hospital]]</tw-passagedata>
+<tw-passagedata pid="19" name="Animal_Hospital" tags="" x="540" y="820">&lt;&lt;set $location = &quot;動物醫院&quot;&gt;&gt;
+&lt;h2&gt;🏥 白色的救贖：動物醫院&lt;/h2>
+
+當你再次睜開眼時，四周充斥著濃烈、刺鼻卻乾淨的消毒水氣味。
+
+你躺在一個鋪著恆溫電熱毯的乾淨不鏽鋼診療台上方。頭頂是刺眼的無影燈。一位戴著口罩、眼神無比溫柔的獸醫師，正用沾了藥水的棉花棒，極其輕柔地為你清理身上的傷口與寄生蟲。
+
+一旁的主理人（或是救你的善心人類）正焦急地詢問：「醫生，這隻小貓還有救嗎？」
+醫生一邊幫你注射營養針，一邊溫柔地順著你的毛皮撫摸：
+
+&lt;&lt;if $health &gt;= 15&gt;&gt;
+	&lt;&lt;set $health = 60&gt;&gt;
+	&lt;&lt;set $trust += 30&gt;&gt;
+	「放心吧，這隻小傢伙雖然底子弱、受了點傷，但求生欲非常強！只要在我們這裡住院觀察幾天，按時打針吃藥，很快就能恢復健康了。」
+	
+	溫暖的藥效在體內散開，你感到出生以來從未有過的輕鬆與安全。你忍不住發出了微弱的「噗嚕噗嚕」反芻聲（貓咪表示安心的呼嚕聲）。
+	&lt;span class=&quot;success&quot;&gt;（健康度大幅回升至 60，信賴度 +30）&lt;/span>
+	
+	[[🐾 乖乖在醫院靜養，等待康復後的前途|Hospital_Future]]
+&lt;&lt;/if&gt;&gt;
+
+&lt;&lt;if $health &lt; 15&gt;&gt;
+	&lt;&lt;set $health -= 10&gt;&gt;
+	「唉...牠實在太小了，嚴重的營養不良加重度失溫，身上還有多處感染...我們只能盡力試試看，接下來這24小時是關鍵期。」
+	
+	醫生的語氣中充滿了無奈與心疼。你躺在溫暖的保溫箱裡，雖然不再受風吹雨打，但體內器官的衰竭讓你感到一陣陣無法抗拒的睡意襲來。
+	
+	[[🐾 在溫暖的保溫箱中，靜靜迎來命運的終點|End_Death_Hospital]]
+&lt;&lt;/if&gt;&gt;</tw-passagedata>
+<tw-passagedata pid="20" name="Hospital_Future" tags="" x="760" y="820">&lt;h2&gt;🔮 命運的十字路口&lt;/h2>
+
+一個禮拜過去了。在獸醫院全體醫護人員的悉心照料下，你原本乾癟的身軀變得圓滾滾的，毛皮也恢復了原本該有的柔順光澤。
+
+今天是你要出院的日子。因為你長相清秀且在醫院裡表現得無比乖巧，有兩個完全不同的命運機會同時擺在你的面前：
+
+一位經常來醫院購買飼料、家裡環境極其優渥的富有愛心女士，表達了強烈的[[想要收養你回家|Someone_Home]]的意願。
+另外，市區一家非常有名的「流浪動物公立收容所（轉型為文創互動園區）」，也希望能將你接過去，讓更多[[有意願領養的人前來與你互動|Shelter_Approach]]。
+
+你更傾向於哪一種歸屬？
+
+[[🐾 答應那位溫柔女士的請求，成為她家中的掌上明珠|Someone_Home]]
+[[🐾 前往充滿未知與同伴的流浪動物收容所|Shelter_Approach]]</tw-passagedata>
+<tw-passagedata pid="21" name="Shelter_Approach" tags="" x="100" y="1000">&lt;&lt;set $location = &quot;動物收容所&quot;&gt;&gt;
+&lt;h2&gt;🏡 新型流浪動物收容所&lt;/h2>
+
+你來到了這座寬敞明亮、充滿陽光與貓草香氣的新型動物收容所。
+
+這裡實行全不關籠的開放式集體生活，四周有巨大的落地窗、數不盡的貓抓板與玩具。幾十隻和你一樣有著不同過去的流浪貓夥伴正聚集在這裡。
+
+每天，都會有成百上千渴望養貓的人類來到這裡進行互動。收容所的志工把你抱到了最顯眼的「待領養明星區」。
+
+這時，一對看起來非常和藹、手裡拿著小貓玩具的年輕夫婦走向了你。
+
+[[🐾 主動伸出小爪子拍打他們的玩具，展現自己的親人魅力|Shelter_Adopt_Success]]
+[[🐾 縮在貓窩最深處，害怕地看著外面嘈雜的人群|Shelter_Stay]]</tw-passagedata>
+<tw-passagedata pid="22" name="Someone_Home" tags="" x="320" y="1000">&lt;&lt;set $location = &quot;幸福的家中&quot;&gt;&gt;
+&lt;h2&gt;👑 終點：某人的溫暖家中&lt;/h2>
+
+你被輕輕放進了一個鋪滿高級天鵝絨軟墊的豪華貓砂盆旁。這裡是一個充滿安全感、再也沒有任何風雨能夠侵襲的——「家」。
+
+主人為你準備了專屬的雙層豪華貓跳台、吃不完的高級有機幼貓罐頭，以及滿地的貓薄荷玩具。
+
+每天傍晚，主人下班回家，第一件事就是將你溫柔地抱在懷裡，一邊看電視一邊輕輕撫摸著你的肚皮。你發出無比響亮的呼嚕聲，徹底忘卻了當初在那個冰冷雨夜、被母親拋棄時的絕望與無助。
+
+透過心理學的延伸，你當初為了生存所做的所有痛苦妥協，在此刻都獲得了最完美的「合理化認知」——這一切的掙扎，都是為了遇見此生最愛你的主人。
+
+[[✨ 達成終極幸福結局：【溫暖的掌上明珠】（點擊查看）|End_Home_Cat]]</tw-passagedata>
+<tw-passagedata pid="23" name="Shelter_Adopt_Success" tags="" x="540" y="1000">&lt;&lt;set $trust = 100&gt;&gt;
+&lt;h2&gt;🎉 領養文件上的金色印章&lt;/h2>
+
+你的熱情與可愛徹底征服了這對夫婦！他們眼中閃爍著淚光，毫不猶豫地填寫了所有領養切結書，並通過了收容所嚴格的審查。
+
+「太好了，我們會一輩子好好愛你的，小寶貝！」
+
+你被裝進了寬敞的提籠，正式告別了流浪生涯。
+&lt;span class=&quot;success&quot;&gt;（人類信賴度達到最高上限 100！）&lt;/span>
+
+[[✨ 達成圓滿結局：【正式收養！成為家庭新成員】（點擊查看）|End_Adopted]]</tw-passagedata>
+<tw-passagedata pid="24" name="Shelter_Stay" tags="" x="760" y="1000">&lt;&lt;set $trust -= 10&gt;&gt;
+&lt;h2&gt;⏳ 漫長的收容所等待&lt;/h2>
+
+因為你的退縮與冷漠，那對夫婦最終選擇了隔壁另一隻活潑親人、不斷撒嬌的三花小貓。
+
+日子一天天過去，收容所裡的夥伴換了一批又一批，而你因為體質原本就差，加上性格孤僻，漸漸成為了這裡的「長期住戶」。雖然這裡有吃有喝、不會有生命危險，但你始終沒能擁有一個專屬於你自己的主人。
+
+你常常趴在窗台上，看著外面的夕陽，不知道自己的真正歸屬究竟在何方。
+
+[[✨ 達成平淡結局：【收容所的常駐隱士】（點擊查看）|End_Shelter_Forever]]</tw-passagedata>
+<tw-passagedata pid="25" name="End_Cafe_Cat" tags="ending" x="100" y="1180">&lt;h2&gt;✨【結局：網紅咖啡廳的超人氣店貓】&lt;/h2&gt;
+&lt;div class=&quot;ending-box summary-card&quot;&gt;
+	經過一個月的隔離與健康調理，你正式在咖啡廳「出道」了！
+	
+	你憑藉著當初在逆境中鍛鍊出來的敏銳觀察力，總能精準找到店內消費最高、或是心情最不好的客人，並主動跳上他們的膝蓋提供療癒的呼嚕服務。
+	
+	如今的你，身上戴著精緻的紅色小領結，擁有專屬的IG粉絲帳號，每天都有數不清的人類排隊前來，只為了餵你吃一根貓肉泥。你用自己的聰明才智，在人類社會中為自己掙得了一個最穩固、最風光的歸屬！
+&lt;/div&gt;
+
+[[🔄 重新挑戰，探索其他命運分歧|Start]]</tw-passagedata>
+<tw-passagedata pid="26" name="End_School_Cat" tags="ending" x="320" y="1180">&lt;h2&gt;✨【結局：陽光校園中人見人愛的傳記校貓】&lt;/h2&gt;
+&lt;div class=&quot;ending-box summary-card&quot;&gt;
+	你留在了這所充滿青春氣息的大學校園。動保社的同學幫你做了絕育手術，並在行政大樓一樓建造了一座超豪華的防風防雨貓屋。
+	
+	你成為了這所學校的「精神象徵」。每逢期末考週，圖書館門口總會聚集大批前來「拜校貓祈求不當掉」的學生。你享受著成百上千名學生的集體寵愛，雖然名義上是流浪貓，但你卻統治了整座校園！
+&lt;/div&gt;
+
+[[🔄 重新挑戰，探索其他命運分歧|Start]]</tw-passagedata>
+<tw-passagedata pid="27" name="End_Home_Cat" tags="ending" x="540" y="1180">&lt;h2&gt;✨【結局：溫暖的掌上明珠（獨享溺愛）】&lt;/h2&gt;
+&lt;div class=&quot;ending-box summary-card&quot;&gt;
+	流浪的苦難徹底結束了。在富麗堂皇的公寓裡，你每天的任務就是從陽光灑落的沙發左邊，睡到沙發的右邊。
+	
+	你有了自己的名字，有了專屬的健康檢查醫生。當初那個在暴雨中快要死去的孱弱小貓，如今變成了體重超標、毛髮蓬鬆的幸福肥貓。你成為了某個人生命中最無可取代的靈魂伴侶。
+&lt;/div&gt;
+
+[[🔄 重新挑戰，探索其他命運分歧|Start]]</tw-passagedata>
+<tw-passagedata pid="28" name="End_Adopted" tags="ending" x="760" y="1180">&lt;h2&gt;✨【結局：跨越苦難，正式成為家庭成員】&lt;/h2&gt;
+&lt;div class=&quot;ending-box summary-card&quot;&gt;
+	你跟著那對溫柔的夫婦回到了家。雖然他們不是大富大貴，但給予你的愛卻毫無保留。
+	
+	家裡甚至還有另一隻溫和的老貓哥哥，牠耐心地教導你如何使用沙盆、如何向主人討零食。在這個充滿歡聲笑語的家庭環境中，你終於找回了剛出生時就被剝奪的家庭溫暖。
+&lt;/div&gt;
+
+[[🔄 重新挑戰，探索其他命運分歧|Start]]</tw-passagedata>
+<tw-passagedata pid="29" name="End_Shelter_Forever" tags="ending" x="100" y="1360">&lt;h2&gt;✨【結局：收容所的守護常青樹】&lt;/h2&gt;
+&lt;div class=&quot;ending-box summary-card&quot;&gt;
+	你最終沒能被特定的人類帶回家，而是選擇成為了收容所的固定員工。
+	
+	隨著年歲增長，你成為了這裡地位崇高的「貓老大」。每當有新進來、驚慌失措的流浪小貓時，你總會主動走過去舔舔牠們的毛，安慰牠們不要害怕。雖然沒有獨享的家，但在這裡，你找到了另一種充滿大愛的生命歸屬。
+&lt;/div&gt;
+
+[[🔄 重新挑戰，探索其他命運分歧|Start]]</tw-passagedata>
+<tw-passagedata pid="30" name="End_Death_Sick" tags="ending" x="320" y="1360">&lt;h2&gt;💀【壞結局：無聲的消逝】&lt;/h2&gt;
+&lt;div class=&quot;ending-box warning-card&quot;&gt;
+	你的眼前變得越來越模糊，四周的喧囂、冰冷的雨水與飢餓感似乎都在漸漸遠去。
+	
+	作為一隻從出生起就被世界拋棄的孱弱小貓，這趟短短幾天的生存掙扎，對你而言已經耗盡了所有的力氣。你慢慢地在不知名的黑暗死角閉上了雙眼。
+	
+	別難過，至少在貓咪的天堂裡，擁有吃不完的肉泥與永遠明媚、溫暖的太陽。
+&lt;/div&gt;
+
+[[🔄 再次轉世，重新挑戰生命之旅|Start]]</tw-passagedata>
+<tw-passagedata pid="31" name="End_Death_Box" tags="ending" x="540" y="1360">&lt;h2&gt;💀【壞結局：困於起點的遺憾】&lt;/h2&gt;
+&lt;div class=&quot;ending-box warning-card&quot;&gt;
+	你終究沒能鼓起勇氣踏出那一步。冰冷的暴雨將紙箱徹底泡爛、壓塌。
+	
+	你懷揣著對母親為何拋棄你的疑惑，以及對外面的恐懼，在寒冷刺骨的紙箱最深處靜靜停止了呼吸。生命的旅程尚未真正開始，便已落幕。
+&lt;/div&gt;
+
+[[🔄 再次轉世，重新挑戰生命之旅|Start]]</tw-passagedata>
+<tw-passagedata pid="32" name="End_Death_Machine" tags="ending" x="760" y="1360">&lt;h2&gt;💀【壞結局：冰冷機械的鋼鐵夾縫】&lt;/h2&gt;
+&lt;div class=&quot;ending-box warning-card&quot;&gt;
+	自動販賣機排出的廢熱狂風帶走了你體內最後的水分。在隆隆的機械噪音與無人知曉的鋼鐵夾縫中，你無助地蜷縮成一團，陷入了永久的沉睡。
+	
+	人類社會的發達與便利，最終沒能分給弱小的你一絲真正的溫柔。
+</div>
+
+[[🔄 再次轉世，重新挑戰生命之旅|Start]]</tw-passagedata>
+</tw-storydata>
+</body>
+</html>
