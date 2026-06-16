@@ -104,28 +104,29 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="流浪貓生存日記" startnode="3" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="6D509890-1CA5-49DF-BFB6-5CA35B8DE2AC" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,250" size="100,100">
+	<tw-storydata name="流浪貓生存日記" startnode="2" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="6D509890-1CA5-49DF-BFB6-5CA35B8DE2AC" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,250" size="100,100">
 &lt;&lt;set $trust to 50&gt;&gt;
-    </tw-passagedata><tw-passagedata pid="2" name="StoryCaption" tags="" position="100,400" size="100,100">
-&lt;div class=&quot;status-panel&quot;&gt;
-    &lt;div class=&quot;status-container&quot;&gt;
-        &lt;div class=&quot;status-item&quot; style=&quot;color: #38bdf8;&quot;&gt;🐾 當前狀態：尋找歸屬中&lt;/div&gt;
-        &lt;div class=&quot;status-item&quot; style=&quot;color: #fb7185;&quot;&gt;❤️ 人類信任度：&lt;&lt;print $trust&gt;&gt;%&lt;/div&gt;
-    &lt;/div&gt;
-&lt;/div&gt;
-    </tw-passagedata><tw-passagedata pid="3" name="Start" tags="" position="100,100" size="100,100">
+&lt;script&gt;
+$(document).on(&#39;:enginerestart&#39;, function () {
+    State.variables.trust = 50;
+});
+&lt;/script&gt;
+    </tw-passagedata><tw-passagedata pid="2" name="Start" tags="" position="100,100" size="100,100">
 &lt;div style=&quot;text-align: center; padding: 20px;&quot;&gt;
     &lt;h1 style=&quot;font-size: 2.6em; color: #fda4af; text-shadow: 0 2px 10px rgba(0,0,0,0.5);&quot;&gt;🐾 流浪貓生存日記：尋找歸屬&lt;/h1&gt;
     &lt;p style=&quot;color: #94a3b8; font-style: italic; font-size: 1.15em;&quot;&gt;—— 傾聽雨夜中的微弱呢喃，用牠的雙眼，看見冷酷都市角落的點點微光。&lt;/p&gt;
     
     &lt;div style=&quot;text-align: left; background: rgba(15, 23, 42, 0.6); border: 1px solid #334155; padding: 25px; border-radius: 12px; margin: 35px 0; font-size: 1em; line-height: 1.8;&quot;&gt;
-        &lt;strong style=&quot;color: #38bdf8; font-size: 1.1em;&quot;&gt;🎨 遊戲設計核心（CSS 環境氛圍同步）：&lt;/strong&gt;
-        &lt;ul style=&quot;margin-top: 8px; padding-left: 20px;&quot;&gt;
-            &lt;li&gt;&lt;strong style=&quot;color: #f43f5e;&quot;&gt;動態背景特效：&lt;/strong&gt; 遊戲畫面會隨著貓咪所在的真實場景，即時呈現柔和的網頁背景色彩過渡！&lt;/li&gt;
-            &lt;li&gt;&lt;strong style=&quot;color: #34d399;&quot;&gt;安全生存線：&lt;/strong&gt; 移除了不合理的暴斃與扣血卡死機制。只要根據你的本能做出抉擇，就能順利帶領貓咪邁向溫馨與幸福。&lt;/li&gt;
-        &lt;/ul&gt;
-    &lt;/div&gt;
-    
+&lt;strong style=&quot;color:#38bdf8;font-size:1.1em;&quot;&gt;📖 遊戲介紹&lt;/strong&gt;
+
+&lt;strong style=&quot;color:#34d399;font-size:1.1em;&quot;&gt;🎮 遊玩方式&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;閱讀劇情並選擇行動。&lt;/li&gt;
+
+&lt;li&gt;不同路線將通往幸福、傳奇或悲傷結局。&lt;/li&gt;
+&lt;li&gt;完成結局後可重新開始，探索其他命運。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;    
     [[踏入冰冷的雨夜|Street_Rain]]
 &lt;/div&gt;
 
@@ -133,22 +134,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #0f172a 0%, #020617 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="4" name="Street_Rain" tags="" position="250,250" size="100,100">
-you 在一陣刺骨的冰冷中睜開雙眼。
-
-耳畔是震耳欲聾的雷鳴與呼嘯的狂風，暴雨如無數根細針般無情地扎在你孱弱的身體上。地面的積水混雜著落葉和泥沙不斷湧來，將你沖刷得瑟瑟發抖。在野外殘酷的生存法則下，你因為生來就體弱多病，無力跟上家人的步伐，被無情地遺棄在原處。
-
-冰冷的雨水正在迅速抽走你僅存的體溫，你的肚子正發出空洞的鳴叫。你必須強迫自己動起來，尋找一線生機！
-
-* [[忍著寒冷，躲進路旁一輛未發動的黑色轎車底部|Under_Car]] *(尋求庇護)*
-* [[勉強爬向前方柏油路面坑洞中的積水，試圖舔舐解渴|Puddle_Water]] *(補充水分)*
-* [[用盡全身力氣發出微弱的哀鳴，試圖吸引路過傘影的注意|Human_Encounter]] &lt;&lt;set $trust to $trust + 20&gt;&gt; *(向人類求助)*
-
-&lt;!-- CSS 動態注入：[雨夜街頭] 冰冷灰藍色調 --&gt;
-&lt;style&gt;
-    body { background: radial-gradient(circle at center, #1e293b 0%, #090d16 100%) !important; }
-&lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="5" name="Under_Car" tags="" position="400,100" size="100,100">
+    </tw-passagedata><tw-passagedata pid="3" name="Under_Car" tags="" position="400,100" size="100,100">
 **【場景轉換：陰暗、充滿油污的車底】**
 
 你連滾帶爬地鑽進了漆黑的車底。雖然頭頂的金屬底盤暫時替你遮擋了暴雨，但機油與柏油路面的寒意依然刺骨。你將身體縮成一個小毛球，劇烈地發抖。
@@ -162,7 +148,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #3f1616 0%, #050202 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="6" name="Puddle_Water" tags="" position="400,250" size="100,100">
+    </tw-passagedata><tw-passagedata pid="4" name="Puddle_Water" tags="" position="400,250" size="100,100">
 **【場景轉換：街角的小路】**
 
 混雜了泥沙與油污的積水非常苦澀，但體內的渴望逼得你大口吞嚥。這勉強緩解了你喉嚨火燒般的乾渴。
@@ -176,7 +162,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #1e293b 0%, #0d1527 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="7" name="Human_Encounter" tags="" position="400,400" size="100,100">
+    </tw-passagedata><tw-passagedata pid="5" name="Human_Encounter" tags="" position="400,400" size="100,100">
 **【場景轉換：路燈下的垃圾桶旁】**
 
 你的微弱哀鳴在雨夜中迴盪，終於，沉重的腳步聲停在了你的面前。
@@ -190,7 +176,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #451a1a 0%, #0a0303 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="8" name="Garden_Gate" tags="" position="550,250" size="100,100">
+    </tw-passagedata><tw-passagedata pid="6" name="Garden_Gate" tags="" position="550,250" size="100,100">
 **【場景轉換：灑滿晨光的溫馨庭院】**
 
 你用盡最後的力氣爬進了矮牆的縫隙，來到了充滿泥土與花香的溫馨庭院。這裡的草皮修剪得很整齊，避開了外面冷冽的寒風。
@@ -209,7 +195,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #3a2512 0%, #120b04 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="9" name="Park_Escape" tags="" position="550,100" size="100,100">
+    </tw-passagedata><tw-passagedata pid="7" name="Park_Escape" tags="" position="550,100" size="100,100">
 **【場景轉換：朝氣蓬勃的校園綠地】**
 
 你拖著疲憊、受驚的身體，成功翻過了校園的低矮圍牆，逃進了大片的綠地樹叢中。清晨的陽光此時穿透雲霧灑了下來，照得身上暖洋洋的。
@@ -223,7 +209,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #1e3a1e 0%, #051005 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="10" name="Hospital_Back" tags="" position="550,400" size="100,100">
+    </tw-passagedata><tw-passagedata pid="8" name="Hospital_Back" tags="" position="550,400" size="100,100">
 **【場景轉換：亮著黃光的動物醫院後門】**
 
 你沿著冷清且充滿積水的暗巷不斷攀爬，視線越來越模糊，最後精疲力竭地倒在一扇亮著溫暖黃光的玻璃門前。門上掛著一塊精緻的木牌——「幸福動物醫院」。
@@ -237,7 +223,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #2e2e1f 0%, #0c0c07 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="11" name="Ending_Adoption" tags="" position="750,650" size="100,100">
+    </tw-passagedata><tw-passagedata pid="9" name="Ending_Adoption" tags="" position="750,650" size="100,100">
 &lt;div class=&quot;ending-card good-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #34d399;&quot;&gt;🐾【完美結局：沙發與暖爐的專屬歸屬】&lt;/div&gt;
     &lt;p&gt;那是你一生中經歷過最溫暖的一雙手。當你決定放下所有的防備與猜忌，放任自己那凍僵的身體癱軟在那個溫熱的懷抱裡時，你悲慘的流浪命運便徹底迎來了終結。&lt;/p&gt;
@@ -253,7 +239,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #133c22 0%, #030a05 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="12" name="Ending_School_Cat" tags="" position="750,530" size="100,100">
+    </tw-passagedata><tw-passagedata pid="10" name="Ending_School_Cat" tags="" position="750,530" size="100,100">
 &lt;div class=&quot;ending-card good-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #34d399;&quot;&gt;🐾【幸福結局：人見人愛的校園守護神】&lt;/div&gt;
     &lt;p&gt;你的溫順與靈動，徹底融化了這座學校所有師生的心，讓你成為了這校園裡不可或缺的靈魂存在。&lt;/p&gt;
@@ -268,7 +254,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #113829 0%, #020a06 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="13" name="Ending_Street_Boss" tags="" position="750,770" size="100,100">
+    </tw-passagedata><tw-passagedata pid="11" name="Ending_Street_Boss" tags="" position="750,770" size="100,100">
 &lt;div class=&quot;ending-card legend-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #fde047;&quot;&gt;🐾【傳奇結局：不屈的街頭野貓老大】&lt;/div&gt;
     &lt;p&gt;你拒絕了人類拋出的溫室橄欖枝，也拒絕了被豢養在安逸牢籠裡的命運。你敏捷地叼起好心人給予的豐盛食物，眼神堅定而野性，頭也不回地再次鑽進了屬於你的廣闊世界。&lt;/p&gt;
@@ -283,7 +269,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #422006 0%, #0c0501 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="14" name="Ending_Car_Accident" tags="" position="750,50" size="100,100">
+    </tw-passagedata><tw-passagedata pid="12" name="Ending_Car_Accident" tags="" position="750,50" size="100,100">
 &lt;div class=&quot;ending-card bad-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #ef4444;&quot;&gt;❌【結局：車輪下的微弱哀鳴】&lt;/div&gt;
     &lt;p&gt;極度的恐懼和寒冷抽乾了你幼小軀殼裡的所有力氣。面對那輛龐大、散發著刺鼻氣味的鋼鐵怪物，你嚇得大腦一片空白，只能本能地將自己死死蜷縮在漆黑的輪胎後方，緊閉雙眼劇烈顫抖。&lt;/p&gt;
@@ -298,7 +284,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: #000000 !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="15" name="Ending_Poison" tags="" position="750,170" size="100,100">
+    </tw-passagedata><tw-passagedata pid="13" name="Ending_Poison" tags="" position="750,170" size="100,100">
 &lt;div class=&quot;ending-card bad-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #ef4444;&quot;&gt;❌【結局：腐敗的致命毒藥】&lt;/div&gt;
     &lt;p&gt;腹中空洞的飢餓感如同野獸般瘋狂啃噬著你的理智。你無法抵抗食物的誘惑，顫抖著撲過去，將那塊沾慢化學油污、已經嚴重發霉的發黑麵包碎屑狼吞虎嚥地吞了下去。&lt;/p&gt;
@@ -313,7 +299,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: #000000 !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="16" name="Ending_Abuse" tags="" position="750,290" size="100,100">
+    </tw-passagedata><tw-passagedata pid="14" name="Ending_Abuse" tags="" position="750,290" size="100,100">
 &lt;div class=&quot;ending-card bad-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #ef4444;&quot;&gt;❌【結局：不懂事的殘酷代價】&lt;/div&gt;
     &lt;p&gt;你低估了人類世界中蘊含的純粹惡意。當尖銳的雨傘尖端一次次狠狠戳在你脆弱的身上時，你被恐懼徹底奪走了行動能力，只能癱軟在垃圾桶旁，發出淒厲哀傷的悲鳴。&lt;/p&gt;
@@ -328,7 +314,7 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 &lt;style&gt;
     body { background: #000000 !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="17" name="Ending_Starve" tags="" position="750,410" size="100,100">
+    </tw-passagedata><tw-passagedata pid="15" name="Ending_Starve" tags="" position="750,410" size="100,100">
 &lt;div class=&quot;ending-card bad-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #a8a29e;&quot;&gt;❌【結局：大自然殘酷的淘汰】&lt;/div&gt;
     &lt;p&gt;在寒冷、重度飢餓與精神高度緊繃的重重打擊下，你體內的最後一絲熱量終於耗盡了。你拒絕了那位醫生的溫暖手掌，狠狠咬了他一口後，驚恐地將自己再次放逐回冰冷的黑暗中。&lt;/p&gt;
@@ -342,6 +328,20 @@ you 在一陣刺骨的冰冷中睜開雙眼。
 
 &lt;style&gt;
     body { background: #000000 !important; }
+&lt;/style&gt;
+    </tw-passagedata><tw-passagedata pid="16" name="Street_Rain" tags="" position="250,200" size="100,100">你在一陣刺骨的冰冷中睜開雙眼。
+
+耳畔是震耳欲聾的雷鳴與呼嘯的狂風，暴雨如無數根細針般無情地扎在你孱弱的身體上。地面的積水混雜著落葉和泥沙不斷湧來，將你沖刷得瑟瑟發抖。在野外殘酷的生存法則下，你因為生來就體弱多病，無力跟上家人的步伐，被無情地遺棄在原處。
+
+冰冷的雨水正在迅速抽走你僅存的體溫，你的肚子正發出空洞的鳴叫。你必須強迫自己動起來，尋找一線生機！
+
+* [[忍著寒冷，躲進路旁一輛未發動的黑色轎車底部|Under_Car]] *(尋求庇護)*
+* [[勉強爬向前方柏油路面坑洞中的積水，試圖舔舐解渴|Puddle_Water]] *(補充水分)*
+* [[用盡全身力氣發出微弱的哀鳴，試圖吸引路過傘影的注意|Human_Encounter]] &lt;&lt;set $trust to $trust + 20&gt;&gt; *(向人類求助)*
+
+&lt;!-- CSS 動態注入：[雨夜街頭] 冰冷灰藍色調 --&gt;
+&lt;style&gt;
+    body { background: radial-gradient(circle at center, #1e293b 0%, #090d16 100%) !important; }
 &lt;/style&gt;
     </tw-passagedata></tw-storydata>
 	<script id="script-sugarcube" type="text/javascript">
