@@ -104,7 +104,7 @@ var LZString=function(){var r=String.fromCharCode,o="ABCDEFGHIJKLMNOPQRSTUVWXYZa
 		<div id="init-lacking"><p>Browser lacks capabilities required to play.</p><p>Upgrade or switch to another browser.</p></div>
 		<div id="init-loading"><div>Loading&hellip;</div></div>
 	</div>
-	<tw-storydata name="流浪貓生存日記" startnode="2" creator="Twine" creator-version="2.11.1" format="SugarCube" format-version="2.37.3" ifid="6D509890-1CA5-49DF-BFB6-5CA35B8DE2AC" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,250" size="100,100">
+	<tw-storydata name="流浪貓生存日記" startnode="2" creator="Twine" creator-version="2.12.0" format="SugarCube" format-version="2.37.3" ifid="6D509890-1CA5-49DF-BFB6-5CA35B8DE2AC" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="StoryInit" tags="" position="100,250" size="100,100">
 &lt;&lt;set $trust to 50&gt;&gt;
 &lt;script&gt;
 $(document).on(&#39;:enginerestart&#39;, function () {
@@ -117,7 +117,10 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     &lt;p style=&quot;color: #94a3b8; font-style: italic; font-size: 1.15em;&quot;&gt;—— 傾聽雨夜中的微弱呢喃，用牠的雙眼，看見冷酷都市角落的點點微光。&lt;/p&gt;
     
     &lt;div style=&quot;text-align: left; background: rgba(15, 23, 42, 0.6); border: 1px solid #334155; padding: 25px; border-radius: 12px; margin: 35px 0; font-size: 1em; line-height: 1.8;&quot;&gt;
+&lt;strong style=&quot;color:#38bdf8;font-size:1.1em;&quot;&gt;😺製作者：陳蓉&lt;/strong&gt;
+
 &lt;strong style=&quot;color:#38bdf8;font-size:1.1em;&quot;&gt;📖 遊戲介紹&lt;/strong&gt;
+　　這是一個以被拋棄的流浪貓為第一視角的遊戲，藉由不同的選擇，帶流浪貓走向不同的結局。
 
 &lt;strong style=&quot;color:#34d399;font-size:1.1em;&quot;&gt;🎮 遊玩方式&lt;/strong&gt;
 &lt;ul&gt;
@@ -134,8 +137,8 @@ $(document).on(&#39;:enginerestart&#39;, function () {
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #0f172a 0%, #020617 100%) !important; }
 &lt;/style&gt;
-    </tw-passagedata><tw-passagedata pid="3" name="Under_Car" tags="" position="400,100" size="100,100">
-**【場景轉換：陰暗、充滿油污的車底】**
+    </tw-passagedata><tw-passagedata pid="3" name="Under_Car" tags="" position="425,75" size="100,100">
+【場景轉換：陰暗、充滿油污的車底】
 
 你連滾帶爬地鑽進了漆黑的車底。雖然頭頂的金屬底盤暫時替你遮擋了暴雨，但機油與柏油路面的寒意依然刺骨。你將身體縮成一個小毛球，劇烈地發抖。
 
@@ -149,7 +152,7 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     body { background: radial-gradient(circle at center, #3f1616 0%, #050202 100%) !important; }
 &lt;/style&gt;
     </tw-passagedata><tw-passagedata pid="4" name="Puddle_Water" tags="" position="400,250" size="100,100">
-**【場景轉換：街角的小路】**
+【場景轉換：街角的小路】
 
 混雜了泥沙與油污的積水非常苦澀，但體內的渴望逼得你大口吞嚥。這勉強緩解了你喉嚨火燒般的乾渴。
 
@@ -163,7 +166,7 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     body { background: radial-gradient(circle at center, #1e293b 0%, #0d1527 100%) !important; }
 &lt;/style&gt;
     </tw-passagedata><tw-passagedata pid="5" name="Human_Encounter" tags="" position="400,400" size="100,100">
-**【場景轉換：路燈下的垃圾桶旁】**
+【場景轉換：路燈下的垃圾桶旁】
 
 你的微弱哀鳴在雨夜中迴盪，終於，沉重的腳步聲停在了你的面前。
 
@@ -177,7 +180,7 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     body { background: radial-gradient(circle at center, #451a1a 0%, #0a0303 100%) !important; }
 &lt;/style&gt;
     </tw-passagedata><tw-passagedata pid="6" name="Garden_Gate" tags="" position="550,250" size="100,100">
-**【場景轉換：灑滿晨光的溫馨庭院】**
+【場景轉換：灑滿晨光的溫馨庭院】
 
 你用盡最後的力氣爬進了矮牆的縫隙，來到了充滿泥土與花香的溫馨庭院。這裡的草皮修剪得很整齊，避開了外面冷冽的寒風。
 
@@ -185,18 +188,17 @@ $(document).on(&#39;:enginerestart&#39;, function () {
 
 你該怎麼做？
 
-&lt;&lt;if $trust gte 40&gt;&gt;
-    [[放下警戒，搖晃著尾巴主動上前用頭蹭蹭婦人的腳踝|Ending_Adoption]] *(信任值足夠：走向幸福家庭)*
-&lt;&lt;else&gt;&gt;
-    [[警戒地弓起背部發出哈氣聲，叼起邊緣的魚肉退回野生世界|Ending_Street_Boss]] *(信任值不足：走向野生傳奇)*
-&lt;&lt;/if&gt;&gt;
+
+    [[放下警戒，搖晃著尾巴主動上前用頭蹭蹭婦人的腳踝|Ending_Adoption]] *(走向幸福家庭)*
+    [[警戒地弓起背部發出哈氣聲，叼起邊緣的魚肉退回野生世界|Ending_Street_Boss]] *(走向野生傳奇)*
+
 
 &lt;!-- CSS 動態注入：[婦人花園] 治癒暖橘金色調 --&gt;
 &lt;style&gt;
     body { background: radial-gradient(circle at center, #3a2512 0%, #120b04 100%) !important; }
 &lt;/style&gt;
     </tw-passagedata><tw-passagedata pid="7" name="Park_Escape" tags="" position="550,100" size="100,100">
-**【場景轉換：朝氣蓬勃的校園綠地】**
+【場景轉換：朝氣蓬勃的校園綠地】
 
 你拖著疲憊、受驚的身體，成功翻過了校園的低矮圍牆，逃進了大片的綠地樹叢中。清晨的陽光此時穿透雲霧灑了下來，照得身上暖洋洋的。
 
@@ -210,7 +212,7 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     body { background: radial-gradient(circle at center, #1e3a1e 0%, #051005 100%) !important; }
 &lt;/style&gt;
     </tw-passagedata><tw-passagedata pid="8" name="Hospital_Back" tags="" position="550,400" size="100,100">
-**【場景轉換：亮著黃光的動物醫院後門】**
+【場景轉換：亮著黃光的動物醫院後門】
 
 你沿著冷清且充滿積水的暗巷不斷攀爬，視線越來越模糊，最後精疲力竭地倒在一扇亮著溫暖黃光的玻璃門前。門上掛著一塊精緻的木牌——「幸福動物醫院」。
 
@@ -226,6 +228,9 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     </tw-passagedata><tw-passagedata pid="9" name="Ending_Adoption" tags="" position="750,650" size="100,100">
 &lt;div class=&quot;ending-card good-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #34d399;&quot;&gt;🐾【完美結局：沙發與暖爐的專屬歸屬】&lt;/div&gt;
+    
+        &lt;img src=&quot;https://raw.githubusercontent.com/s09121101-lab/11143362/refs/heads/main/img/家貓.png&quot; width=&quot;100%&quot; height=&quot;100%&quot; &gt;
+    
     &lt;p&gt;那是你一生中經歷過最溫暖的一雙手。當你決定放下所有的防備與猜忌，放任自己那凍僵的身體癱軟在那個溫熱的懷抱裡時，你悲慘的流浪命運便徹底迎來了終結。&lt;/p&gt;
     &lt;p&gt;在好心人日復一日、悉心體貼的照料下，你體內的寄生蟲被清除乾淨，曾經滿是泥濘、打結乾枯的毛髮也逐漸脫落。短短幾個月過去，你長出了如雪般潔白、如絲綢般順滑且厚實的健康新毛。你再也不用在漆黑的暴雨夜裡為了尋找一丁點腐敗的食物而翻找冰冷的垃圾桶，也再也不用提心吊膽地躲避那些會發出轟鳴巨響、差點將你輾碎的鋼鐵怪物。&lt;/p&gt;
     &lt;p&gt;如今的你，正懶洋洋地趴在客廳厚實柔軟的羊毛地毯上，身旁是不斷散發出融融暖意的壁爐。一隻精緻的陶瓷碗裡裝滿了香噴噴的頂級雞肉貓罐頭，旁邊還放著你最心愛的貓薄荷玩偶。當午後的和煦陽光透過巨大的落地窗灑在你身上時，你舒服地瞇起雙眼，喉嚨裡發出幸福且富有節奏的「嚕嚕」聲。主人輕柔地撫摸著你的耳後，你順從地翻個身，露出毫無防備的柔軟肚皮——你終於知道了什麼叫做「家」，你找到了一生最安穩的避風港。&lt;/p&gt;
@@ -242,6 +247,9 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     </tw-passagedata><tw-passagedata pid="10" name="Ending_School_Cat" tags="" position="750,530" size="100,100">
 &lt;div class=&quot;ending-card good-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #34d399;&quot;&gt;🐾【幸福結局：人見人愛的校園守護神】&lt;/div&gt;
+    
+        &lt;img src=&quot;https://raw.githubusercontent.com/s09121101-lab/11143362/refs/heads/main/img/校貓.png&quot; width=&quot;100%&quot; height=&quot;100%&quot; &gt;
+    
     &lt;p&gt;你的溫順與靈動，徹底融化了這座學校所有師生的心，讓你成為了這校園裡不可或缺的靈魂存在。&lt;/p&gt;
     &lt;p&gt;得知你在暴雨夜被遺棄的悲慘遭遇後，幾名高中生在學校發起了「守護小貓」的聯名活動。在校方與學生會的共同努力下，學校不僅安排獸醫為你做了全面的身體檢查，還特地在陽光充足、遮風避雨的警衛室旁，為你親手搭建了一個用木頭做的、精緻的雙層貓咪別墅，上面還用彩色畫筆歪歪斜斜地寫著你的名字。&lt;/p&gt;
     &lt;p&gt;你獲得了學校正式頒發的「榮譽校貓兼吉祥物」正式頭銜。現在的你，每天清晨都會神氣地坐在校門口，像個小巡查員一樣看著學生們背著書包陸續走進校園；每當下課鐘聲響起，就會有成群的學生圍著你，送上源源不絕的魚肉凍乾、高級零食與無比溫柔的集體撫摸。雖然你依然保留著熱愛自由的天性，喜歡在午後爬上高高的樹梢曬太陽，但每當夜幕降臨，看著亮起溫暖燈光的警衛室，你心裡無比踏實——這裡的每一個人，都是你的家人。&lt;/p&gt;
@@ -257,6 +265,9 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     </tw-passagedata><tw-passagedata pid="11" name="Ending_Street_Boss" tags="" position="750,770" size="100,100">
 &lt;div class=&quot;ending-card legend-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #fde047;&quot;&gt;🐾【傳奇結局：不屈的街頭野貓老大】&lt;/div&gt;
+    
+        &lt;img src=&quot;https://raw.githubusercontent.com/s09121101-lab/11143362/refs/heads/main/img/老大貓.png&quot; width=&quot;100%&quot; height=&quot;100%&quot; &gt;
+    
     &lt;p&gt;你拒絕了人類拋出的溫室橄欖枝，也拒絕了被豢養在安逸牢籠裡的命運。你敏捷地叼起好心人給予的豐盛食物，眼神堅定而野性，頭也不回地再次鑽進了屬於你的廣闊世界。&lt;/p&gt;
     &lt;p&gt;那一晚的暴雨和挫折並沒有擊垮你，反而成了你最硬朗的生存磨刀石。時光荏苒，幾年過去了，當初那隻在雨夜裡奄奄一息、任人欺凌的孱弱幼貓已經徹底消失。取而代之的，是這條繁華街區裡體型最壯碩、肌肉結實、耳朵上帶著無數次榮譽勳章般傷疤的「地下領主」。&lt;/p&gt;
     &lt;p&gt;你憑藉著對人類世界的敏銳警惕，以及高超的捕食與戰鬥技巧，統合了這帶所有的流浪貓族群，建立起屬於流浪動物的尊嚴。雖然你沒有溫慢的沙發與現成的罐頭，但當你站在深夜最高聳的圍牆頂端，俯瞰著整座都市閃爍的霓虹燈火，任由夜風吹拂著你威風凜凜的毛髮時，你傲然地向著夜空低鳴了一聲——你靠著自己的力量活了下來，並且活得無比尊嚴。這整座都市的夜空，都是你自由馳騁的江山！&lt;/p&gt;
@@ -272,6 +283,9 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     </tw-passagedata><tw-passagedata pid="12" name="Ending_Car_Accident" tags="" position="750,50" size="100,100">
 &lt;div class=&quot;ending-card bad-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #ef4444;&quot;&gt;❌【結局：車輪下的微弱哀鳴】&lt;/div&gt;
+
+    &lt;img src=&quot;https://raw.githubusercontent.com/s09121101-lab/11143362/refs/heads/main/img/輪胎貓.png&quot; width=&quot;100%&quot; height=&quot;100%&quot; &gt;
+
     &lt;p&gt;極度的恐懼和寒冷抽乾了你幼小軀殼裡的所有力氣。面對那輛龐大、散發著刺鼻氣味的鋼鐵怪物，你嚇得大腦一片空白，只能本能地將自己死死蜷縮在漆黑的輪胎後方，緊閉雙眼劇烈顫抖。&lt;/p&gt;
     &lt;p&gt;伴隨著一聲刺耳的倒車鳴笛與橡膠輪胎轉動的撕裂聲，沉重的重量無情地輾過了你脆弱的脊椎。世界在一瞬間陷入了劇烈的痛苦，隨後歸於無邊的死寂。&lt;/p&gt;
     &lt;p&gt;在那個冰冷的雨夜裡，一條渺小的生命悄然逝去，除了無情的泥濘，沒有人知道你曾來過這個世界。&lt;/p&gt;
@@ -287,6 +301,9 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     </tw-passagedata><tw-passagedata pid="13" name="Ending_Poison" tags="" position="750,170" size="100,100">
 &lt;div class=&quot;ending-card bad-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #ef4444;&quot;&gt;❌【結局：腐敗的致命毒藥】&lt;/div&gt;
+    
+        &lt;img src=&quot;https://raw.githubusercontent.com/s09121101-lab/11143362/refs/heads/main/img/麵包貓.png&quot; width=&quot;100%&quot; height=&quot;100%&quot; &gt;
+    
     &lt;p&gt;腹中空洞的飢餓感如同野獸般瘋狂啃噬著你的理智。你無法抵抗食物的誘惑，顫抖著撲過去，將那塊沾慢化學油污、已經嚴重發霉的發黑麵包碎屑狼吞虎嚥地吞了下去。&lt;/p&gt;
     &lt;p&gt;然而，那塊麵包裡混雜了致命的滅鼠毒素。吞下短短十幾分鐘後，一陣如烈火灼燒、鋼刀亂攪般的劇痛猛然從你的腹部炸開。&lt;/p&gt;
     &lt;p&gt;你痛苦地在陰暗潮濕的暗巷角落裡翻滾、抽搐，發出微弱、沙啞的悲鳴，卻沒有任何人聽見。最終，你冰冷的軀體在垃圾桶旁漸漸僵硬，帶著無盡的痛苦沉入黑暗。&lt;/p&gt;
@@ -302,6 +319,9 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     </tw-passagedata><tw-passagedata pid="14" name="Ending_Abuse" tags="" position="750,290" size="100,100">
 &lt;div class=&quot;ending-card bad-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #ef4444;&quot;&gt;❌【結局：不懂事的殘酷代價】&lt;/div&gt;
+    
+      &lt;img src=&quot;https://raw.githubusercontent.com/s09121101-lab/11143362/refs/heads/main/img/雨傘貓.png&quot; width=&quot;100%&quot; height=&quot;100%&quot; &gt;
+    
     &lt;p&gt;你低估了人類世界中蘊含的純粹惡意。當尖銳的雨傘尖端一次次狠狠戳在你脆弱的身上時，你被恐懼徹底奪走了行動能力，只能癱軟在垃圾桶旁，發出淒厲哀傷的悲鳴。&lt;/p&gt;
     &lt;p&gt;這痛苦的掙扎反而刺激了那兩個頑皮小孩的惡作劇心理，沉重的石塊和密集的雨傘無情地落下。&lt;/p&gt;
     &lt;p&gt;你微弱的生命在他們刺耳的嬉笑聲和玩鬧聲中一點一滴地流逝。眼前的世界逐漸染成一片血紅，最終，冰冷的雨水沖刷掉了地面上的血跡，你在無助與對人類的極度恐懼中，迎來了生命的終結。&lt;/p&gt;
@@ -317,6 +337,9 @@ $(document).on(&#39;:enginerestart&#39;, function () {
     </tw-passagedata><tw-passagedata pid="15" name="Ending_Starve" tags="" position="750,410" size="100,100">
 &lt;div class=&quot;ending-card bad-end&quot;&gt;
     &lt;div class=&quot;ending-title&quot; style=&quot;color: #a8a29e;&quot;&gt;❌【結局：大自然殘酷的淘汰】&lt;/div&gt;
+    
+        &lt;img src=&quot;https://raw.githubusercontent.com/s09121101-lab/11143362/refs/heads/main/img/水溝貓.png&quot; width=&quot;100%&quot; height=&quot;100%&quot; &gt;
+    
     &lt;p&gt;在寒冷、重度飢餓與精神高度緊繃的重重打擊下，你體內的最後一絲熱量終於耗盡了。你拒絕了那位醫生的溫暖手掌，狠狠咬了他一口後，驚恐地將自己再次放逐回冰冷的黑暗中。&lt;/p&gt;
     &lt;p&gt;你蜷縮在漆黑冰冷的深水溝邊，任由混濁的髒水打濕你稀疏的毛髮。你的心跳越來越慢，視線徹底被黑暗吞噬。身為一隻剛出生就被拋棄的孱弱流浪貓，你用盡了全身的力氣，在這個冷酷的世界裡卑微且拼命地掙扎過了。&lt;/p&gt;
     &lt;p&gt;別再發抖了，大雨已經停了。辛苦了，安心地睡吧。&lt;/p&gt;
